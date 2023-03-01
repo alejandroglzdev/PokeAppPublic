@@ -7,7 +7,7 @@ import com.alejandroglzdev.pokeapp.data.model.PokemonProvider
 
 class PokemonViewModel : ViewModel(){
     //Creamos un mutableLiveData, donde le pasaremos el arrayList(metodo postValue), gracias al provider
-    val pokemonModel = MutableLiveData<List<PokemonModel>>().postValue(PokemonProvider.getPokemonList())
+    val pokemonModel = PokemonProvider.getPokemonList()
 
     /*
     fun getPokemonList(){
