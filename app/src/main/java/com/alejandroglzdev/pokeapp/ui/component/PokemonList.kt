@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 @Composable
 fun PokemonList(pokemonList: List<String>) {
     LazyColumn{
-        items(pokemonList) { message ->
-
+        items(pokemonList) { pokemon ->
+            PokemonListView(pokemonImage = , pokedexNumber = , pokemonName = )
         }
     }
 

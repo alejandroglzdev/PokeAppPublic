@@ -1,4 +1,4 @@
-package com.alejandroglzdev.pokeapp
+package com.alejandroglzdev.pokeapp.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,11 +10,15 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.alejandroglzdev.pokeapp.ui.component.HomeScreen
 import com.alejandroglzdev.pokeapp.ui.theme.PokeAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContent{
+            HomeScreen()
+        }
 
     }
 }
