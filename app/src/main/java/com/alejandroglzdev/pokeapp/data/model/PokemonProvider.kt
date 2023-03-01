@@ -2,9 +2,8 @@ package com.alejandroglzdev.pokeapp.data.model
 
 class PokemonProvider {
     companion object {
-        fun random(): PokemonModel{
-            val position = (0..10).random()
-            return pokemon[position]
+        fun getPokemonList(): List<PokemonModel>{
+            return pokemon
         }
 
         private val pokemon = listOf<PokemonModel>(
