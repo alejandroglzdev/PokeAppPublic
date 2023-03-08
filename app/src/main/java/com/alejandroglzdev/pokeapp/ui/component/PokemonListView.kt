@@ -29,6 +29,6 @@ fun PokemonListView(pokemonModel: PokemonModel) {
 @Preview
 @Composable
 fun PreviewListView() {
-    PokemonListView(PokemonProvider.getPokemonList()[1])
+    //PokemonListView(PokemonProvider.getPokemonList()[1])
 }
 
