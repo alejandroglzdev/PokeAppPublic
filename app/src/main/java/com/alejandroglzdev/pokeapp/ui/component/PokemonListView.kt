@@ -19,7 +19,8 @@ fun PokemonListView(pokemonModel: PokemonModel) {
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        PokemonImage(image = R.drawable.ic_launcher_foreground, 10.dp)
+        PokemonImage(image = R.drawable.ic_launcher_foreground,
+            10.dp)
         PokemonListViewText(pokemonModel.pokedexNumber, textAlign = TextAlign.Center)
         PokemonListViewText(pokemonModel.pokemonName, textAlign = TextAlign.Center)
     }

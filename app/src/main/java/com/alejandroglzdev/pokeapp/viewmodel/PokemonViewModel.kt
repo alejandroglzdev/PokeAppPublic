@@ -9,13 +9,13 @@ import kotlinx.coroutines.launch
 
 class PokemonViewModel : ViewModel(){
     var getPokemonsUseCase = GetPokemonsUseCase()
-    val pokemonModel = MutableLiveData<List<PokemonModel>>()
+    val items  = MutableLiveData<List<PokemonModel>>()
     fun onCreate() {
         viewModelScope.launch {
             val result = getPokemonsUseCase()
 
             if(!result.isNullOrEmpty()) {
-                pokemonModel.postValue(result)
+                items.postValue(result)
             }
         }
     }

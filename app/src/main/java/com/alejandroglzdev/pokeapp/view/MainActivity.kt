@@ -16,11 +16,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pokemonViewModel.onCreate()
-        Handler().postDelayed({
             setContent{
-                HomeScreen(pokemonViewModel.pokemonModel.value?.toList() ?: emptyList())
+                HomeScreen(pokemonViewModel)
             }
-        }, 4000)
+
 
 
         /*
@@ -36,6 +35,6 @@ class MainActivity : ComponentActivity() {
     @Preview
     @Composable
     fun Preview(){
-        HomeScreen(pokemonViewModel.pokemonModel.value?.toList() ?: emptyList())
+        //HomeScreen(pokemonViewModel.pokemonModel.value?.toList() ?: emptyList())
     }
 }
