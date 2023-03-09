@@ -9,7 +9,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alejandroglzdev.pokeapp.R
 import com.alejandroglzdev.pokeapp.data.model.PokemonModel
-import com.alejandroglzdev.pokeapp.data.model.PokemonProvider
 
 @Composable
 fun PokemonListView(pokemonModel: PokemonModel) {
