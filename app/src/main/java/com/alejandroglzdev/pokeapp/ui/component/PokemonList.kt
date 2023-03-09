@@ -20,19 +20,7 @@ fun PokemonList(pokemonList: List<PokemonModel>?) {
     if (pokemonList != null) {
         LazyColumn {
             items(pokemonList) { pokemon ->
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(24.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    PokemonImage(image = R.drawable.ic_launcher_foreground,
-                        10.dp)
-                    PokemonListViewText(pokemon.pokedexNumber,
-                        textAlign = TextAlign.Center,
-                        )
-                    PokemonListViewText(pokemon.pokemonName, textAlign = TextAlign.Center)
-                }
+                PokemonListView(pokemon)
             }
         }
     }

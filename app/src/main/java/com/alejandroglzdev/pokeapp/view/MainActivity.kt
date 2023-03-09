@@ -1,7 +1,6 @@
 package com.alejandroglzdev.pokeapp.view
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -19,16 +18,6 @@ class MainActivity : ComponentActivity() {
             setContent{
                 HomeScreen(pokemonViewModel)
             }
-
-
-
-        /*
-        val service = PokemonService()
-        CoroutineScope(Dispatchers.IO).launch {
-            val a= service.getPokemonCount()
-            println(a)
-        }
-         */
 
     }
 
