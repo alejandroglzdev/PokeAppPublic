@@ -1,11 +1,13 @@
 package com.alejandroglzdev.pokeapp.ui.component
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.alejandroglzdev.pokeapp.data.model.PokemonModel
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
+import com.alejandroglzdev.pokeapp.viewmodel.PokemonViewModel
 
 @Composable
-fun HomeScreen(pokemonList: List<PokemonModel>) {
-    PokemonList(pokemonList)
+fun HomeScreen(viewModel: PokemonViewModel) {
+    val items by viewModel.items.observeAsState()
 
+    PokemonList(items)
 }
