@@ -2,4 +2,8 @@ package com.alejandroglzdev.pokeapp.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class PokemonModel (@SerializedName("name")val pokemonName: String, @SerializedName("id")val pokedexNumber: String)
+data class PokemonModel(
+    @SerializedName("name") val pokemonName: String,
+    @SerializedName("id") val pokedexNumber: String,
+    @SerializedName("sprites") val sprites: PokemonSprite
+)

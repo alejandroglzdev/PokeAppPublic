@@ -8,12 +8,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 
 @Composable
-fun PokemonImage(image: Int, paddingBottom: Dp = 0.dp) {
-    Image(painter = painterResource(id = image),
+fun PokemonImage(image: String, paddingBottom: Dp = 0.dp) {
+    AsyncImage(
+        model = image,
         contentDescription = "An image of a Pokémon",
         contentScale = ContentScale.Fit,
-        modifier = Modifier.padding(bottom = paddingBottom))
+        modifier = Modifier.padding(bottom = paddingBottom)
+    )
 
 }
