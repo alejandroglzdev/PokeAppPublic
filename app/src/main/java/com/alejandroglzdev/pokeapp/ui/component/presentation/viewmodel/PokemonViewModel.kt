@@ -6,10 +6,15 @@ import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import com.alejandroglzdev.pokeapp.data.model.PokemonModel
 import com.alejandroglzdev.pokeapp.domain.GetPokemonsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PokemonViewModel : ViewModel() {
-    var getPokemonsUseCase = GetPokemonsUseCase()
+@HiltViewModel
+class PokemonViewModel @Inject constructor(
+    val getPokemonsUseCase: GetPokemonsUseCase
+    ) : ViewModel() {
+
     val items = MutableLiveData<List<PokemonModel>>()
     fun onCreate() {
         viewModelScope.launch {

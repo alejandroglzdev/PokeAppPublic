@@ -4,13 +4,14 @@ import com.alejandroglzdev.pokeapp.core.RetrofitHelper
 import com.alejandroglzdev.pokeapp.data.network.PokemonApiClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class PokemonService {
+class PokemonService @Inject constructor(private val api: PokemonApiClient) {
     private val retrofit = RetrofitHelper.getRetrofit()
 
     suspend fun getPokemonCount(): PokemonCount? {
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(PokemonApiClient::class.java).getAllPokemonsCount()
+            val response = api.getAllPokemonsCount()
             response.body()
         }
 
@@ -21,7 +22,7 @@ class PokemonService {
             val pokemons = mutableListOf<PokemonModel>()
 
             for (i in offSet..limit) {
-                val response = retrofit.create(PokemonApiClient::class.java).getPokemon(i)
+                val response = api.getPokemon(i)
                 val pokemonResponse = response.body()
 
                 if (pokemonResponse != null) {
