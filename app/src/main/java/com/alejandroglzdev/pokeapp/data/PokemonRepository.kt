@@ -8,8 +8,8 @@ class PokemonRepository {
 
     private val api = PokemonService()
 
-    suspend fun getTenPokemon(): List<PokemonModel> {
-        val response = api.getTenPokemons()
+    suspend fun getPokemonList(limit: Int, offset: Int): List<PokemonModel> {
+        val response = api.getPokemonList(limit,offset)
         PokemonProvider.pokemon = response
         return response
     }
