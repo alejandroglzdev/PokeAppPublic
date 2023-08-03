@@ -11,9 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.alejandroglzdev.pokeapp.data.model.Paginable
 import com.alejandroglzdev.pokeapp.data.model.PokemonModel
+import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 
 @Composable
-fun PokemonList(pokemonList: List<PokemonModel>?, viewDelegate: Paginable) {
+fun PokemonList(pokemonList: List<Pokemon>?, viewDelegate: Paginable) {
     val listState = rememberLazyListState()
     ConstraintLayout(Modifier.fillMaxSize()) {
         val circularProgressIndicator = createRef()

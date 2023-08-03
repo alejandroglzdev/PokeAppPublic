@@ -6,6 +6,7 @@ import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import com.alejandroglzdev.pokeapp.data.model.PokemonModel
 import com.alejandroglzdev.pokeapp.domain.GetPokemonsUseCase
+import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,7 +16,7 @@ class PokemonViewModel @Inject constructor(
     val getPokemonsUseCase: GetPokemonsUseCase
     ) : ViewModel() {
 
-    val items = MutableLiveData<List<PokemonModel>>()
+    val items = MutableLiveData<List<Pokemon>>()
     fun onCreate() {
         viewModelScope.launch {
             val result = getPokemonsUseCase(20, 1)
