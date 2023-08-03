@@ -9,7 +9,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.alejandroglzdev.pokeapp.data.model.Paginable
 import com.alejandroglzdev.pokeapp.ui.component.HomeScreen
 import com.alejandroglzdev.pokeapp.ui.component.presentation.viewmodel.PokemonViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity(), Paginable {
     private val pokemonViewModel : PokemonViewModel by viewModels()
 

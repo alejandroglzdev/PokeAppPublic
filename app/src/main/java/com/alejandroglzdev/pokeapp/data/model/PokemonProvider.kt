@@ -1,9 +1,9 @@
 package com.alejandroglzdev.pokeapp.data.model
 
-class PokemonProvider {
-    companion object {
-        private val api = PokemonService()
+import javax.inject.Inject
+import javax.inject.Singleton
 
-        var pokemon = emptyList<PokemonModel>()
-    }
+@Singleton
+class PokemonProvider @Inject constructor(private val api: PokemonService) {
+    var pokemon = emptyList<PokemonModel>()
 }
