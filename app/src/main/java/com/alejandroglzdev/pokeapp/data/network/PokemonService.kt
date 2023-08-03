@@ -16,10 +16,11 @@ class PokemonService {
 
     }
 
-    suspend fun getTenPokemons(): MutableList<PokemonModel> {
+    suspend fun getPokemonList(limit: Int, offSet: Int): MutableList<PokemonModel> {
         return withContext(Dispatchers.IO){
             val pokemons = mutableListOf<PokemonModel>()
-            for (i in 1..10) {
+
+            for (i in offSet..limit) {
                 val response = retrofit.create(PokemonApiClient::class.java).getPokemon(i)
                 val pokemonResponse = response.body()
 
