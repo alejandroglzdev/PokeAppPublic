@@ -9,7 +9,7 @@ import com.alejandroglzdev.pokeapp.data.database.entities.PokemonEntity
 @Dao
 interface PokemonDao {
 
-    @Query("SELECT * FROM pokemon_table ORDER BY pokedexNumber ASC")
+    @Query("SELECT * FROM pokemon_table")
     suspend fun getAllPokemons(): List<PokemonEntity>
 
     @Query("DELETE FROM pokemon_table")

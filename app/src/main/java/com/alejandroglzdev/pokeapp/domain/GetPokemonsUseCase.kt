@@ -14,7 +14,7 @@ class GetPokemonsUseCase @Inject constructor(
         val pokemons = repository.getPokemonListFromApi(limit = limit, offset = offSet)
 
         return if (pokemons.isNotEmpty()) {
-            repository.clearPokemons()
+            //repository.clearPokemons()
             repository.insertPokemons(pokemons = pokemons.map { it.toDatabase() })
             pokemons
         }else {

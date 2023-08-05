@@ -10,8 +10,8 @@ import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 @Entity(tableName = "pokemon_table")
 data class PokemonEntity(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "pokemonName") val pokemonName: String,
     @ColumnInfo(name = "pokedexNumber") val pokedexNumber: String,
+    @ColumnInfo(name = "pokemonName") val pokemonName: String,
     @ColumnInfo(name = "sprites") val sprites: PokemonSprite
 )
 
