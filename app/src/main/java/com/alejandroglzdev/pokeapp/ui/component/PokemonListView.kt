@@ -9,9 +9,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alejandroglzdev.pokeapp.R
 import com.alejandroglzdev.pokeapp.data.model.PokemonModel
+import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 
 @Composable
-fun PokemonListView(pokemonModel: PokemonModel) {
+fun PokemonListView(pokemonModel: Pokemon) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
