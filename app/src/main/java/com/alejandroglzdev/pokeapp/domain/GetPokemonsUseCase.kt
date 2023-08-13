@@ -2,7 +2,6 @@ package com.alejandroglzdev.pokeapp.domain
 
 import com.alejandroglzdev.pokeapp.data.PokemonRepository
 import com.alejandroglzdev.pokeapp.data.database.entities.toDatabase
-import com.alejandroglzdev.pokeapp.data.model.PokemonModel
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 import javax.inject.Inject
 

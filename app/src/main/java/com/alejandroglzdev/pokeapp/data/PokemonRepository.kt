@@ -2,8 +2,6 @@ package com.alejandroglzdev.pokeapp.data
 
 import com.alejandroglzdev.pokeapp.data.database.dao.PokemonDao
 import com.alejandroglzdev.pokeapp.data.database.entities.PokemonEntity
-import com.alejandroglzdev.pokeapp.data.model.PokemonModel
-import com.alejandroglzdev.pokeapp.data.model.PokemonProvider
 import com.alejandroglzdev.pokeapp.data.model.PokemonService
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 import com.alejandroglzdev.pokeapp.domain.model.toDomain

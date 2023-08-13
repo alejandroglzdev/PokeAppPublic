@@ -30,7 +30,6 @@ class MainActivity : ComponentActivity(), Paginable {
         //HomeScreen(pokemonViewModel.pokemonModel.value?.toList() ?: emptyList())
     }
 
-    //TODO: Mirar si es correcto hacer el override aqui
     override fun paginate(lastItemIndex: Int) {
         pokemonViewModel.update(lastItemIndex)
     }
