@@ -10,7 +10,7 @@ import com.alejandroglzdev.pokeapp.data.database.entities.SpritesConverter
 import com.alejandroglzdev.pokeapp.data.model.PokemonSprite
 
 @Database(entities = [PokemonEntity::class],
-    version = 1
+    version = 2
 )
 
 @TypeConverters(SpritesConverter::class)

@@ -1,5 +1,6 @@
 package com.alejandroglzdev.pokeapp.ui.component.presentation.viewmodel
 
+import androidx.compose.ui.text.capitalize
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
@@ -14,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PokemonViewModel @Inject constructor(
     val getPokemonsUseCase: GetPokemonsUseCase
-    ) : ViewModel() {
+) : ViewModel() {
 
     val items = MutableLiveData<List<Pokemon>>()
     fun onCreate() {
@@ -34,7 +35,6 @@ class PokemonViewModel @Inject constructor(
             if (!result.isNullOrEmpty()) {
                 items.value?.let { currentList ->
                     val updatedList = currentList + result
-
 
                     items.postValue(updatedList.distinctBy { it.pokedexNumber })
                 }
