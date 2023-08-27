@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import com.alejandroglzdev.pokeapp.R
 import com.alejandroglzdev.pokeapp.data.model.PokemonModel
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
+import com.alejandroglzdev.pokeapp.extensions.capitalizeFirst
 
 @Composable
 fun PokemonListView(pokemonModel: Pokemon) {
@@ -56,7 +57,7 @@ fun PokemonListView(pokemonModel: Pokemon) {
                                 color = Color(0xFFD1D5E1)
                             ) {
                                 Text(
-                                    text = type,
+                                    text = type.capitalizeFirst(),
                                     fontSize =  12.sp,
                                     style = MaterialTheme.typography.h2,
                                     modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
@@ -69,7 +70,7 @@ fun PokemonListView(pokemonModel: Pokemon) {
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
-                    text = pokemonModel.pokemonName,
+                    text = pokemonModel.pokemonName.capitalizeFirst(),
                     fontSize =  24.sp,
                     style = MaterialTheme.typography.h1,
                     fontWeight = FontWeight.SemiBold

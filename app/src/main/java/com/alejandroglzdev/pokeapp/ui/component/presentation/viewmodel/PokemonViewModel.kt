@@ -21,10 +21,9 @@ class PokemonViewModel @Inject constructor(
     fun onCreate() {
         viewModelScope.launch {
             val result = getPokemonsUseCase(20, 1)
-            val pokemonsCapitalized = capitalize(result)
 
-            if (!pokemonsCapitalized.isNullOrEmpty()) {
-                items.postValue(pokemonsCapitalized)
+            if (!result.isNullOrEmpty()) {
+                items.postValue(result)
             }
         }
     }
@@ -32,33 +31,15 @@ class PokemonViewModel @Inject constructor(
     fun update(lastItemIndex: Int) {
         viewModelScope.launch {
             val result = getPokemonsUseCase(limit = lastItemIndex + 20, offSet = lastItemIndex)
-            val pokemonsCapitalized = capitalize(result)
 
-            if (!pokemonsCapitalized.isNullOrEmpty()) {
+            if (result.isNullOrEmpty()) {
                 items.value?.let { currentList ->
-                    val updatedList = currentList + pokemonsCapitalized
-
+                    val updatedList = currentList + result
 
                     items.postValue(updatedList.distinctBy { it.pokedexNumber })
                 }
             }
         }
-    }
-
-    fun capitalize(pokemons: List<Pokemon>): List<Pokemon> {
-        var newList : MutableList<Pokemon> = mutableListOf()
-
-        for(pokemon in pokemons) {
-            var newPokemon = Pokemon(
-                pokemonName = pokemon.pokemonName.replaceFirstChar(Char::titlecase),
-                pokedexNumber = pokemon.pokedexNumber,
-                sprites = pokemon.sprites,
-                types = pokemon.types)
-
-            newList.add(newPokemon)
-        }
-
-        return newList
     }
 
 }
