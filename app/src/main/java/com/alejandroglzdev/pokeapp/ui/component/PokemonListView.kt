@@ -2,6 +2,7 @@ package com.alejandroglzdev.pokeapp.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
@@ -44,34 +45,24 @@ fun PokemonListView(pokemonModel: Pokemon) {
                     .weight(2f),
                 verticalArrangement = Arrangement.Center
             ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .weight(2f),
-                ) {
-                    Surface(
-                        shape = RoundedCornerShape(24.dp),
-                        modifier = Modifier.wrapContentSize(),
-                        color = Color(0xFFD1D5E1)
-                    ) {
-                        Text(
-                            text = "New release",
-                            fontSize =  12.sp,
-                            style = MaterialTheme.typography.h2,
-                            modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
-                        )
-                    }
-                    Surface(
-                        shape = RoundedCornerShape(24.dp),
-                        modifier = Modifier.wrapContentSize(),
-                        color = Color(0xFFD1D5E1)
-                    ) {
-                        Text(
-                            text = "New release",
-                            fontSize =  12.sp,
-                            style = MaterialTheme.typography.h2,
-                            modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
-                        )
+                LazyRow(modifier = Modifier
+                    .fillMaxSize()
+                    .weight(2f)){
+                    items(pokemonModel.types.size) {
+                        pokemonModel.types[it].typeDetail.name?.let { type ->
+                            Surface(
+                                shape = RoundedCornerShape(24.dp),
+                                modifier = Modifier.wrapContentSize(),
+                                color = Color(0xFFD1D5E1)
+                            ) {
+                                Text(
+                                    text = type,
+                                    fontSize =  12.sp,
+                                    style = MaterialTheme.typography.h2,
+                                    modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+                                )
+                            }
+                        }
                     }
                 }
 
