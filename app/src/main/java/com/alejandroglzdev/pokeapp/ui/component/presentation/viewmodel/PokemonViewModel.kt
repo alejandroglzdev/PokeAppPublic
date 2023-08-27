@@ -32,7 +32,7 @@ class PokemonViewModel @Inject constructor(
         viewModelScope.launch {
             val result = getPokemonsUseCase(limit = lastItemIndex + 20, offSet = lastItemIndex)
 
-            if (result.isNullOrEmpty()) {
+            if (!result.isNullOrEmpty()) {
                 items.value?.let { currentList ->
                     val updatedList = currentList + result
 
