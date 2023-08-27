@@ -34,7 +34,8 @@ class PokemonService @Inject constructor(private val api: PokemonApiClient) {
                             PokemonModel(
                                 pokemonName = pokemonResponse.pokemonName,
                                 pokedexNumber = pokemonResponse.pokedexNumber,
-                                sprites = PokemonSprite(frontDefault = pokemonSpriteImage)
+                                sprites = PokemonSprite(frontDefault = pokemonSpriteImage),
+                                types = pokemonResponse.types
                             )
                         )
                     }

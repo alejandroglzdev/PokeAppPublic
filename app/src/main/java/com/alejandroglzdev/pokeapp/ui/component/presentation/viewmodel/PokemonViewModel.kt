@@ -52,7 +52,8 @@ class PokemonViewModel @Inject constructor(
             var newPokemon = Pokemon(
                 pokemonName = pokemon.pokemonName.replaceFirstChar(Char::titlecase),
                 pokedexNumber = pokemon.pokedexNumber,
-                sprites = pokemon.sprites)
+                sprites = pokemon.sprites,
+                types = pokemon.types)
 
             newList.add(newPokemon)
         }
