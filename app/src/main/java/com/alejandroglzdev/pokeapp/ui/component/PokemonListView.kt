@@ -92,22 +92,7 @@ fun PokemonListView(pokemonModel: Pokemon) {
 
                     Text(text = "#" + pokemonModel.pokedexNumber)
 
-                    Spacer(modifier = Modifier.height(2.dp))
-
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        /*
-                        Text(
-                            text = "4.0",
-                            fontSize =  14.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            style = MaterialTheme.typography.h1
-                        )
-                        */
-
-                        Spacer(modifier = Modifier.width(4.dp))
-                    }
-
-                    Spacer(modifier = Modifier.height(4.dp))
+                    Spacer(modifier = Modifier.height(6.dp).width(4.dp))
 
                     OutlinedButton(
                         shape = RoundedCornerShape(8.dp),
