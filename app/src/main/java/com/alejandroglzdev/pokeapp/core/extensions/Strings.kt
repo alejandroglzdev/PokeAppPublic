@@ -4,6 +4,7 @@ fun String.capitalizeFirst() : String {
     return this.replaceFirstChar(Char::titlecase)
 }
 
+//TODO: Cambiar de clase este metodo a ColorHelper
 fun Long.transformHexColor(newAlpha: Int): Long {
     val red = (this shr 16) and 0xFF
     val green = (this shr 8) and 0xFF
