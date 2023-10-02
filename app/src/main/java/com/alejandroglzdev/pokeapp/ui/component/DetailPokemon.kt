@@ -107,33 +107,3 @@ fun DetailPokemon(pokemon: Pokemon) {
     }
 
 }
-
-@Preview
-@Composable
-fun DetailPokemonPreview() {
-    val pokemonTypeList: List<PokemonType> = listOf(
-        PokemonType(
-            slot = 1,
-            typeDetail = PokemonTypeDetail(
-                name = "grass",
-                url = "https://pokeapi.co/api/v2/type/12/"
-            )
-        ),
-        PokemonType(
-            slot = 2,
-            typeDetail = PokemonTypeDetail(
-                name = "poison",
-                url = "https://pokeapi.co/api/v2/type/10/"
-            )
-        )
-    )
-    DetailPokemon(
-        pokemon = Pokemon(
-            "Bulbasaur",
-            "1",
-            PokemonSprite("iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAMFBMVEUAAAAQEBAYSkoxc3M5lJRSYili1bRzrDGD7sWk1UGsADG9/3PNzc3uIDn/amL///87EAzGAAAAAXRSTlMAQObYZgAAAZ1JREFUWMPtlL9Lw0AUx9NUce1JwMGlLUfbrdAGcVAkl0fI5iSloxiOrg4hiJuWcP+AlPwLASm4lWzB0dG9/0HAunbwpbjfq6PcZ/5+8n5weZZlMBgMhv/F4b75KaOHj5L4ZppMWuT8Y1Gssge6gPmiSLKYINjtukBRvJ0kK5IQPrXHyGhwWxTZyz1BUGOlUjlQOyHRlwhDpSCUKq2FBWFqX6k5hKmU0Wkt6Hs6xwKgdsIqW8Q0IVQpoJBlSawdojmYKRz6+aMHXrYgCPZnqubh7HJZgtdPiALUwmYnTLTCxTpUoObrfAtCUISrZYAzRMtqCz7040S7pbM8kLjSvHoHANHXCx35C/Da0D8NfiyDO8yPGLjQhY7+dV/nUt512DdgiS4X+tfK/bzGBYEdcWhrhYbjv1aVC54D2BRBQAOnBeaAK7CKR/hHPYagwz0cgiAcyAg3KiQIhyZYrsQoD6I9BPAYh1oQQDlMgYw8K0Ch4bouRWhGtSCjll2WJeXqDYe8ZfUC7IYx0qlsMGbZm83Xfqee+HGDwWAwGP7KD5Vqm0oTWykbAAAAAElFTkSuQmCC"),
-            pokemonTypeList
-        )
-    )
-
-}
