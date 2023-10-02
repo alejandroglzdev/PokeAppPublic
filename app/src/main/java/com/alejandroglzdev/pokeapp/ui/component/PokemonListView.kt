@@ -86,12 +86,7 @@ fun PokemonListView(pokemonModel: Pokemon) {
 
                     Spacer(modifier = Modifier.height(4.dp))
 
-                    Text(
-                        text = pokemonModel.pokemonName.capitalizeFirst(),
-                        fontSize = 24.sp,
-                        style = MaterialTheme.typography.h1,
-                        fontWeight = FontWeight.SemiBold
-                    )
+                    PokemonH1(text = pokemonModel.pokemonName.capitalizeFirst())
 
                     Spacer(modifier = Modifier.height(2.dp))
 

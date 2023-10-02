@@ -1,9 +1,6 @@
 package com.alejandroglzdev.pokeapp.ui.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,7 +12,6 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
-import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -59,13 +55,8 @@ fun DetailPokemon(pokemon: Pokemon) {
 
         Spacer(modifier = Modifier.size(10.dp))
 
-        //Nombre del Pokemon, hay que crear un nuevo Composable con el Text y reutilizarlo en la otra vista
-        Text(
-            text = pokemon.pokemonName.capitalizeFirst() + " #" + pokemon.pokedexNumber,
-            fontSize = 24.sp,
-            style = MaterialTheme.typography.h1,
-            fontWeight = FontWeight.SemiBold
-        )
+        //Nombre del Pokemon y numero, hay que crear un nuevo Composable con el Text y reutilizarlo en la otra vista
+        PokemonH1(text = pokemon.pokemonName.capitalizeFirst() + " #" + pokemon.pokedexNumber)
 
         Spacer(modifier = Modifier.size(10.dp))
 
