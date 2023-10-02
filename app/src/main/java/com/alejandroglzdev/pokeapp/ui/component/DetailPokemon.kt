@@ -68,18 +68,18 @@ fun DetailPokemon(pokemon: Pokemon) {
                     Icon(
                         painterResource(id = R.drawable.ic_weight),
                         contentDescription = "Weight icon",
-                        Modifier.size(14.dp)
+                        Modifier.size(14.dp).padding(end = 5.dp)
                     )
-                    PokemonH2(text = pokemon.weight.toString())
+                    PokemonH2(text = (pokemon.weight.toFloat() / 10).toString() + " kg")
                 }
 
                 Row(Modifier.padding(start = 10.dp, end = 10.dp)) {
                     Icon(
                         painterResource(id = R.drawable.ic_height),
                         contentDescription = "Height icon",
-                        Modifier.size(14.dp)
+                        Modifier.size(14.dp).padding(end = 5.dp)
                     )
-                    PokemonH2(text = pokemon.height.toString())
+                    PokemonH2(text =(pokemon.height.toFloat() / 10).toString() + " m")
                 }
 
             }
