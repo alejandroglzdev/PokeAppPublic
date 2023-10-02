@@ -70,7 +70,7 @@ fun DetailPokemon(pokemon: Pokemon) {
                         contentDescription = "Weight icon",
                         Modifier.size(14.dp)
                     )
-                    PokemonH2(text = "Weight")
+                    PokemonH2(text = pokemon.weight.toString())
                 }
 
                 Row(Modifier.padding(start = 10.dp, end = 10.dp)) {
@@ -79,7 +79,7 @@ fun DetailPokemon(pokemon: Pokemon) {
                         contentDescription = "Height icon",
                         Modifier.size(14.dp)
                     )
-                    PokemonH2(text = "Height")
+                    PokemonH2(text = pokemon.height.toString())
                 }
 
             }
