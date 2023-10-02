@@ -7,13 +7,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -55,34 +50,15 @@ fun DetailPokemon(pokemon: Pokemon) {
 
         Spacer(modifier = Modifier.size(10.dp))
 
-        //Nombre del Pokemon y numero, hay que crear un nuevo Composable con el Text y reutilizarlo en la otra vista
+        //Nombre del Pokemon y numero
         PokemonH1(text = pokemon.pokemonName.capitalizeFirst() + " #" + pokemon.pokedexNumber)
 
         Spacer(modifier = Modifier.size(10.dp))
 
         //Row con el tipo, peso y altura
         Row {
-            //Row con los tipos,hay que crear un nuevo Composable con la row y reutilizarlo en la otra vista
-            LazyRow(modifier = Modifier.padding(start = 10.dp, end = 10.dp)) {
-                items(pokemon.types.size) {
-                    pokemon.types[it].typeDetail.name?.let { type ->
-                        Surface(
-                            shape = RoundedCornerShape(24.dp),
-                            modifier = Modifier.wrapContentSize(),
-                            color = Color(ColorHelper.getColorFromType(type))
-                        ) {
-                            Text(
-                                text = type.capitalizeFirst(),
-                                fontSize = 12.sp,
-                                style = MaterialTheme.typography.h2,
-                                color = Color.Black,
-                                modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
-                            )
-                        }
-                        Spacer(modifier = Modifier.width(5.dp))
-                    }
-                }
-            }
+            //Row con los tipos
+            TypesLazyRowDetail(pokemon)
 
             Spacer(Modifier.weight(1f))
 
