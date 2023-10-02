@@ -25,7 +25,7 @@ fun TypesLazyRowDetail(pokemon: Pokemon) {
                     modifier = Modifier.wrapContentSize(),
                     color = Color(ColorHelper.getColorFromType(type))
                 ) {
-                    PokemonH2(text = type.capitalizeFirst())
+                    PokemonH2(text = type.capitalizeFirst(), horizontalPadding = 8, verticalPadding = 4)
                 }
                 Spacer(modifier = Modifier.width(5.dp))
             }

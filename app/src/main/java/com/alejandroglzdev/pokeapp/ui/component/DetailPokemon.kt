@@ -70,24 +70,16 @@ fun DetailPokemon(pokemon: Pokemon) {
                         contentDescription = "Weight icon",
                         Modifier.size(14.dp)
                     )
-                    Text(
-                        text = "Peso", fontSize = 12.sp,
-                        style = MaterialTheme.typography.h2,
-                        color = Color.Black
-                    )
+                    PokemonH2(text = "Weight")
                 }
 
                 Row(Modifier.padding(start = 10.dp, end = 10.dp)) {
                     Icon(
                         painterResource(id = R.drawable.ic_height),
-                        contentDescription = "Weight icon",
+                        contentDescription = "Height icon",
                         Modifier.size(14.dp)
                     )
-                    Text(
-                        text = "Altura", fontSize = 12.sp,
-                        style = MaterialTheme.typography.h2,
-                        color = Color.Black
-                    )
+                    PokemonH2(text = "Height")
                 }
 
             }
@@ -96,23 +88,19 @@ fun DetailPokemon(pokemon: Pokemon) {
         Spacer(modifier = Modifier.size(25.dp))
 
         //Descripcion del Pokemon
-        Text(
-            text = "Bulbasaur es un Pokémon cuadrúpedo de color verde y manchas más oscuras de formas geométricas. Su cabeza representa cerca de un tercio de su cuerpo.",
-            Modifier.padding(start = 10.dp, end = 10.dp),
-            fontSize = 14.sp,
-            style = MaterialTheme.typography.h2,
-            color = Color.Black,
+        PokemonH2(
+            text = "Bulbasaur es un Pokémon cuadrúpedo de color verde y manchas más oscuras de" +
+                    " formas geométricas. Su cabeza representa cerca de un tercio de su cuerpo.",
+            horizontalPadding = 10,
+            fontSize = 14,
             textAlign = TextAlign.Center
         )
 
         Spacer(modifier = Modifier.size(30.dp))
 
-        Text(
-            text = "Base stats",
-            fontSize = 18.sp,
-            style = MaterialTheme.typography.h1,
-            fontWeight = FontWeight.SemiBold
-        )
+        PokemonH1(text = "Base stats", fontSize = 18)
+
+        Spacer(modifier = Modifier.size(10.dp))
 
         //Barras de estadisticas
         StatsBars()

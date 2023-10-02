@@ -2,7 +2,10 @@ package com.alejandroglzdev.pokeapp.ui.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -20,27 +23,52 @@ fun StatsBarsItem(value: Int, pokemonStat: PokemonStats) {
     val limit = 255f
     Column(
     ) {
-        Text(
-            text = pokemonStat.description, fontSize = 12.sp,
-            style = MaterialTheme.typography.h2,
-            color = Color.Black
-        )
+        PokemonH2(text = pokemonStat.description, fontSize = 12)
+
         Row(verticalAlignment = Alignment.CenterVertically) {
-            when(pokemonStat){
-                PokemonStats.ATK -> LinearProgressIndicator(value / limit, color = Color(0xFFFFA500))
-                PokemonStats.HP -> LinearProgressIndicator(value / limit, color = Color.Red)
-                PokemonStats.DEF -> LinearProgressIndicator(value / limit, color = Color(0xFF8B6969))
-                PokemonStats.SPEED -> LinearProgressIndicator(value / limit, color = Color.Green)
-                PokemonStats.SPATK -> LinearProgressIndicator(value / limit, color = Color(0xFF800080))
-                PokemonStats.SPDEF -> LinearProgressIndicator(value / limit, color = Color(0xFFADD8E6))
+            when (pokemonStat) {
+                PokemonStats.ATK -> LinearProgressIndicator(
+                    value / limit,
+                    color = Color(0xFFFFA500),
+                    modifier = Modifier.height(5.dp)
+                )
+
+                PokemonStats.HP -> LinearProgressIndicator(
+                    value / limit,
+                    color = Color.Red,
+                    modifier = Modifier.height(5.dp)
+                )
+
+                PokemonStats.DEF -> LinearProgressIndicator(
+                    value / limit,
+                    color = Color(0xFF8B6969),
+                    modifier = Modifier.height(5.dp)
+                )
+
+                PokemonStats.SPEED -> LinearProgressIndicator(
+                    value / limit,
+                    color = Color.Green,
+                    modifier = Modifier.height(5.dp)
+                )
+
+                PokemonStats.SPATK -> LinearProgressIndicator(
+                    value / limit,
+                    color = Color(0xFF800080),
+                    modifier = Modifier.height(5.dp)
+                )
+
+                PokemonStats.SPDEF -> LinearProgressIndicator(
+                    value / limit,
+                    color = Color(0xFFADD8E6),
+                    modifier = Modifier.height(5.dp)
+                )
 
             }
 
-            Text(
-                text = value.toString(), Modifier.padding(start = 5.dp),
-                fontSize = 12.sp,
-                style = MaterialTheme.typography.h2,
-                color = Color.Black
+            PokemonH2(
+                text = value.toString(), horizontalPadding = 5,
+                fontSize = 14
+
             )
         }
 
