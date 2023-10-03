@@ -42,7 +42,7 @@ class SpritesConverter {
         if (data == null) {
             return emptyList()
         }
-        val listType: Type = object : TypeToken<List<PokemonType>>() {}.type
+        val listType: Type = object : TypeToken<List<PokemonStats>>() {}.type
         return gson.fromJson(data, listType)
     }
 

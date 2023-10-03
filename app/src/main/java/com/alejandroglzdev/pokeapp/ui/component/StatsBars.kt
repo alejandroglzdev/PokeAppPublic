@@ -12,32 +12,32 @@ fun StatsBars(pokemon: Pokemon) {
         pokemon.stats.forEach { stats ->
             when (stats.stat.name) {
                 PokemonStatsEnum.ATK.description -> StatsBarsItem(
-                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    value = stats.base_stat,
                     pokemonStat = PokemonStatsEnum.ATK
                 )
 
                 PokemonStatsEnum.HP.description -> StatsBarsItem(
-                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    value = stats.base_stat,
                     pokemonStat = PokemonStatsEnum.HP
                 )
 
                 PokemonStatsEnum.DEF.description -> StatsBarsItem(
-                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    value = stats.base_stat,
                     pokemonStat = PokemonStatsEnum.DEF
                 )
 
                 PokemonStatsEnum.SPATK.description -> StatsBarsItem(
-                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    value = stats.base_stat,
                     pokemonStat = PokemonStatsEnum.SPATK
                 )
 
                 PokemonStatsEnum.SPDEF.description -> StatsBarsItem(
-                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    value = stats.base_stat,
                     pokemonStat = PokemonStatsEnum.SPDEF
                 )
 
                 PokemonStatsEnum.SPEED.description -> StatsBarsItem(
-                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    value = stats.base_stat,
                     pokemonStat = PokemonStatsEnum.SPEED
                 )
             }
