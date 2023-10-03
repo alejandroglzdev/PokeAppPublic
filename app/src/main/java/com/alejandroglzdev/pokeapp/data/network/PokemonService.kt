@@ -22,7 +22,6 @@ class PokemonService @Inject constructor(private val api: PokemonApiClient) {
 
             for (i in offSet..limit) {
                 try {
-                    //TODO: Llamar aqui a api para coger descripcion
                     val response = api.getPokemon(i)
                     val pokemonResponse = response.body()
 
