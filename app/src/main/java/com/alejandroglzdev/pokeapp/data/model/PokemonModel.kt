@@ -8,5 +8,6 @@ data class PokemonModel(
     @SerializedName("height") val pokemonHeight: Int,
     @SerializedName("weight") val pokemonWeight: Int,
     @SerializedName("sprites") val sprites: PokemonSprite,
-    @SerializedName("types") val types: List<PokemonType>
+    @SerializedName("types") val types: List<PokemonType>,
+    @SerializedName("stats") val stats: List<PokemonStats>
 )

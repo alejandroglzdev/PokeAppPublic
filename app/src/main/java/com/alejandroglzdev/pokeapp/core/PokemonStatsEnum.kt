@@ -1,6 +1,6 @@
 package com.alejandroglzdev.pokeapp.core
 
-enum class PokemonStats(val description: String) {
+enum class PokemonStatsEnum(val description: String) {
     HP("HP"),
     ATK("Attack"),
     SPATK("Special attack"),
