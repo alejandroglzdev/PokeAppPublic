@@ -17,7 +17,8 @@ data class PokemonEntity(
     @ColumnInfo(name = "pokemonWeight") val pokemonWeight: Int,
     @ColumnInfo(name = "sprites") val sprites: PokemonSprite,
     @ColumnInfo(name = "types") val types: List<PokemonType>,
-    @ColumnInfo(name = "stats") val stats: List<PokemonStats>
+    @ColumnInfo(name = "stats") val stats: List<PokemonStats>,
+    @ColumnInfo(name = "flavorText") val flavorText: String?,
 )
 
-fun Pokemon.toDatabase() = PokemonEntity(pokemonName = pokemonName, pokedexNumber = pokedexNumber, sprites = sprites, types = types, pokemonHeight = height, pokemonWeight = weight, stats = stats)
+fun Pokemon.toDatabase() = PokemonEntity(pokemonName = pokemonName, pokedexNumber = pokedexNumber, sprites = sprites, types = types, pokemonHeight = height, pokemonWeight = weight, stats = stats, flavorText = flavorText)

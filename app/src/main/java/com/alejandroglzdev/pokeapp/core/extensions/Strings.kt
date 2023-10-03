@@ -8,6 +8,10 @@ fun String.normalizeStatsName(): String {
     return this.replaceFirstChar(Char::titlecase).replace("-", " ")
 }
 
+fun String.removeBreakLine(): String {
+    return this.replace("\n", "")
+}
+
 
 //TODO: Cambiar de clase este metodo a ColorHelper
 fun Long.transformHexColor(newAlpha: Int): Long {

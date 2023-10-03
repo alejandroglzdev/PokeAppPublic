@@ -22,8 +22,12 @@ class PokemonService @Inject constructor(private val api: PokemonApiClient) {
 
             for (i in offSet..limit) {
                 try {
+                    //TODO: Llamar aqui a api para coger descripcion
                     val response = api.getPokemon(i)
                     val pokemonResponse = response.body()
+
+                    val flavourTextResponse = api.getPokemonFlavourText(i)
+                    val flavourText = flavourTextResponse.body()?.flavorTextEntries?.get(1)?.flavorText
 
                     //Parse sprite to Base 64
                     val pokemonSpriteImage =
@@ -38,7 +42,8 @@ class PokemonService @Inject constructor(private val api: PokemonApiClient) {
                                 pokemonWeight = pokemonResponse.pokemonWeight,
                                 sprites = PokemonSprite(frontDefault = pokemonSpriteImage),
                                 types = pokemonResponse.types,
-                                stats = pokemonResponse.stats
+                                stats = pokemonResponse.stats,
+                                flavorText = flavourText
 
                             )
                         )

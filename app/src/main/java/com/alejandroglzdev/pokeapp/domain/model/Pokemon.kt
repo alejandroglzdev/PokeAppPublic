@@ -16,8 +16,9 @@ data class Pokemon(
     val weight: Int,
     val sprites: PokemonSprite,
     val types: List<PokemonType>,
-    val stats: List<PokemonStats>
+    val stats: List<PokemonStats>,
+    val flavorText: String?
 ) : Parcelable
 
-fun PokemonModel.toDomain() = Pokemon(pokemonName = pokemonName, pokedexNumber = pokedexNumber, height = pokemonHeight, weight = pokemonWeight,sprites = sprites, types = types, stats = stats)
-fun PokemonEntity.toDomain() = Pokemon(pokemonName = pokemonName, pokedexNumber = pokedexNumber, height = pokemonHeight,weight = pokemonWeight, sprites = sprites, types = types, stats = stats)
+fun PokemonModel.toDomain() = Pokemon(pokemonName = pokemonName, pokedexNumber = pokedexNumber, height = pokemonHeight, weight = pokemonWeight,sprites = sprites, types = types, stats = stats, flavorText = flavorText)
+fun PokemonEntity.toDomain() = Pokemon(pokemonName = pokemonName, pokedexNumber = pokedexNumber, height = pokemonHeight,weight = pokemonWeight, sprites = sprites, types = types, stats = stats, flavorText = flavorText)
