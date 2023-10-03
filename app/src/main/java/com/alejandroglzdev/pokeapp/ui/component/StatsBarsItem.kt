@@ -11,13 +11,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alejandroglzdev.pokeapp.core.PokemonStatsEnum
+import com.alejandroglzdev.pokeapp.core.extensions.normalizeStatsName
 
 @Composable
 fun StatsBarsItem(value: Int, pokemonStat: PokemonStatsEnum) {
     val limit = 255f
     Column(
     ) {
-        PokemonH2(text = pokemonStat.description, fontSize = 12)
+        PokemonH2(text = pokemonStat.description.normalizeStatsName(), fontSize = 12)
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             when (pokemonStat) {

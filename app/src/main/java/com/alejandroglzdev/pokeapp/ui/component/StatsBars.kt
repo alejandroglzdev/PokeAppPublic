@@ -4,16 +4,45 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.alejandroglzdev.pokeapp.core.PokemonStatsEnum
+import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 
 @Composable
-fun StatsBars(){
+fun StatsBars(pokemon: Pokemon) {
     Column {
-        StatsBarsItem(value = 40 /* Aqui tendria que ir el valor del modelo de datos */ , pokemonStat = PokemonStatsEnum.HP )
-        StatsBarsItem(value = 50 /* Aqui tendria que ir el valor del modelo de datos */ , pokemonStat = PokemonStatsEnum.ATK  )
-        StatsBarsItem(value = 90 /* Aqui tendria que ir el valor del modelo de datos */ , pokemonStat = PokemonStatsEnum.SPATK  )
-        StatsBarsItem(value = 20 /* Aqui tendria que ir el valor del modelo de datos */ , pokemonStat = PokemonStatsEnum.DEF  )
-        StatsBarsItem(value = 30 /* Aqui tendria que ir el valor del modelo de datos */ , pokemonStat = PokemonStatsEnum.SPDEF  )
-        StatsBarsItem(value = 25 /* Aqui tendria que ir el valor del modelo de datos */ , pokemonStat = PokemonStatsEnum.SPEED  )
+        pokemon.stats.forEach { stats ->
+            when (stats.stat.name) {
+                PokemonStatsEnum.ATK.description -> StatsBarsItem(
+                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    pokemonStat = PokemonStatsEnum.ATK
+                )
+
+                PokemonStatsEnum.HP.description -> StatsBarsItem(
+                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    pokemonStat = PokemonStatsEnum.HP
+                )
+
+                PokemonStatsEnum.DEF.description -> StatsBarsItem(
+                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    pokemonStat = PokemonStatsEnum.DEF
+                )
+
+                PokemonStatsEnum.SPATK.description -> StatsBarsItem(
+                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    pokemonStat = PokemonStatsEnum.SPATK
+                )
+
+                PokemonStatsEnum.SPDEF.description -> StatsBarsItem(
+                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    pokemonStat = PokemonStatsEnum.SPDEF
+                )
+
+                PokemonStatsEnum.SPEED.description -> StatsBarsItem(
+                    value = stats.base_stat /* Aqui tendria que ir el valor del modelo de datos */,
+                    pokemonStat = PokemonStatsEnum.SPEED
+                )
+            }
+        }
+
     }
 
 }
@@ -21,5 +50,5 @@ fun StatsBars(){
 @Preview
 @Composable
 fun StatsBarsPreview() {
-    StatsBars()
+    //StatsBars()
 }

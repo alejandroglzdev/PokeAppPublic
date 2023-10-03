@@ -1,10 +1,10 @@
 package com.alejandroglzdev.pokeapp.core
 
 enum class PokemonStatsEnum(val description: String) {
-    HP("HP"),
-    ATK("Attack"),
-    SPATK("Special attack"),
-    DEF("Defense"),
-    SPDEF("Special defense"),
-    SPEED("Speed")
+    HP("hp"),
+    ATK("attack"),
+    SPATK("special-attack"),
+    DEF("defense"),
+    SPDEF("special-defense"),
+    SPEED("speed")
 }

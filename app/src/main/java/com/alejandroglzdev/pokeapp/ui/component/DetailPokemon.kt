@@ -103,7 +103,7 @@ fun DetailPokemon(pokemon: Pokemon) {
         Spacer(modifier = Modifier.size(10.dp))
 
         //Barras de estadisticas
-        StatsBars()
+        StatsBars(pokemon)
     }
 
 }

@@ -1,8 +1,13 @@
 package com.alejandroglzdev.pokeapp.core.extensions
 
-fun String.capitalizeFirst() : String {
+fun String.capitalizeFirst(): String {
     return this.replaceFirstChar(Char::titlecase)
 }
+
+fun String.normalizeStatsName(): String {
+    return this.replaceFirstChar(Char::titlecase).replace("-", " ")
+}
+
 
 //TODO: Cambiar de clase este metodo a ColorHelper
 fun Long.transformHexColor(newAlpha: Int): Long {
