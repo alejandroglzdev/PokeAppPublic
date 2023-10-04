@@ -25,12 +25,6 @@ class MainActivity : ComponentActivity(), Paginable {
 
     }
 
-    @Preview
-    @Composable
-    fun Preview(){
-        //HomeScreen(pokemonViewModel.pokemonModel.value?.toList() ?: emptyList())
-    }
-
     override fun paginate(lastItemIndex: Int) {
         pokemonViewModel.update(lastItemIndex)
     }

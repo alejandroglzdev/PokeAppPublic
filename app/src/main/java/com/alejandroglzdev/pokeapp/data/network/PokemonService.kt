@@ -8,13 +8,6 @@ import java.net.URL
 import javax.inject.Inject
 
 class PokemonService @Inject constructor(private val api: PokemonApiClient) {
-    suspend fun getPokemonCount(): PokemonCount? {
-        return withContext(Dispatchers.IO) {
-            val response = api.getAllPokemonsCount()
-            response.body()
-        }
-
-    }
 
     suspend fun getPokemonList(limit: Int, offSet: Int): MutableList<PokemonModel> {
         return withContext(Dispatchers.IO) {
