@@ -1,4 +1,4 @@
-package com.alejandroglzdev.pokeapp.ui.component
+package com.alejandroglzdev.pokeapp.ui.component.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

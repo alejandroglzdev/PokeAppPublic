@@ -5,9 +5,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
-import com.alejandroglzdev.pokeapp.ui.component.DetailPokemon
-import com.alejandroglzdev.pokeapp.ui.component.HomeScreen
-import com.alejandroglzdev.pokeapp.ui.component.SplashScreen
+import com.alejandroglzdev.pokeapp.ui.component.views.DetailPokemon
+import com.alejandroglzdev.pokeapp.ui.component.views.HomeScreen
+import com.alejandroglzdev.pokeapp.ui.component.views.SplashScreen
 import com.alejandroglzdev.pokeapp.ui.component.presentation.view.MainActivity
 import com.alejandroglzdev.pokeapp.ui.component.presentation.viewmodel.PokemonViewModel
 

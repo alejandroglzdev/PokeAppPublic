@@ -1,4 +1,4 @@
-package com.alejandroglzdev.pokeapp.ui.component
+package com.alejandroglzdev.pokeapp.ui.component.items
 
 import android.graphics.BitmapFactory
 import android.util.Base64
