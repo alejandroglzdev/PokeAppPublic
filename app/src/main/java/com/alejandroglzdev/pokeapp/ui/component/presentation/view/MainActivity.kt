@@ -4,11 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.alejandroglzdev.pokeapp.data.model.Paginable
 import com.alejandroglzdev.pokeapp.navigation.AppNavigation
-import com.alejandroglzdev.pokeapp.ui.component.HomeScreen
 import com.alejandroglzdev.pokeapp.ui.component.presentation.viewmodel.PokemonViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,12 +20,6 @@ class MainActivity : ComponentActivity(), Paginable {
                 AppNavigation(pokemonViewModel, this)
             }
 
-    }
-
-    @Preview
-    @Composable
-    fun Preview(){
-        //HomeScreen(pokemonViewModel.pokemonModel.value?.toList() ?: emptyList())
     }
 
     override fun paginate(lastItemIndex: Int) {

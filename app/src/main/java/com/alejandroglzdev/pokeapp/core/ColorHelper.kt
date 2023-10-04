@@ -5,7 +5,6 @@ import com.alejandroglzdev.pokeapp.core.extensions.transformHexColor
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 
 object ColorHelper {
-    //TODO: Fetch total types list from API and store them in DB to get the ID
     fun getColorFromType(type: String): Long {
         return when(type.lowercase()){
             "normal"   -> 0xFFA8A77A

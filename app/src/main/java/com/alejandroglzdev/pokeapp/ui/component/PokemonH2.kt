@@ -9,7 +9,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.alejandroglzdev.pokeapp.core.extensions.capitalizeFirst
 
 @Composable
 fun PokemonH2(text: String, fontSize: Int = 12, verticalPadding: Int = 0, horizontalPadding: Int = 0, textAlign: TextAlign = TextAlign.Start) {

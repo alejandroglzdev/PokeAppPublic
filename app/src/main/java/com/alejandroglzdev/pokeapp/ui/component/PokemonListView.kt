@@ -1,13 +1,21 @@
 package com.alejandroglzdev.pokeapp.ui.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Surface
@@ -17,22 +25,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.os.bundleOf
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import com.alejandroglzdev.pokeapp.R
 import com.alejandroglzdev.pokeapp.core.ColorHelper
-import com.alejandroglzdev.pokeapp.data.model.PokemonModel
-import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 import com.alejandroglzdev.pokeapp.core.extensions.capitalizeFirst
-import com.alejandroglzdev.pokeapp.core.extensions.transformHexColor
+import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 import com.alejandroglzdev.pokeapp.navigation.AppScreens
 
 @Composable
@@ -119,7 +118,13 @@ fun PokemonListView(pokemonModel: Pokemon, navController: NavController) {
                             contentColor = Color.Black,
                             backgroundColor = Color.White
                         ),
-                        onClick = { /*TODO*/ }
+                        onClick = {
+                            navController.currentBackStackEntry?.savedStateHandle?.set(
+                                key = "pokemon",
+                                value = pokemonModel
+                            )
+                            navController.navigate(AppScreens.DetailScreen.route)
+                        }
                     ) {
                         Text(
                             text = "Read More",

@@ -1,11 +1,8 @@
 package com.alejandroglzdev.pokeapp.ui.component.presentation.viewmodel
 
-import androidx.compose.ui.text.capitalize
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
-import com.alejandroglzdev.pokeapp.data.model.PokemonModel
 import com.alejandroglzdev.pokeapp.domain.GetPokemonsUseCase
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 import dagger.hilt.android.lifecycle.HiltViewModel

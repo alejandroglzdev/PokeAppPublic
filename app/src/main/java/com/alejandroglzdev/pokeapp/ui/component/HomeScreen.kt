@@ -1,5 +1,6 @@
 package com.alejandroglzdev.pokeapp.ui.component
 
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -10,6 +11,7 @@ import com.alejandroglzdev.pokeapp.ui.component.presentation.viewmodel.PokemonVi
 @Composable
 fun HomeScreen(viewModel: PokemonViewModel, viewDelegate: Paginable, navController: NavController) {
     val items by viewModel.items.observeAsState()
-
-    PokemonList(items, viewDelegate, navController)
+    Scaffold(topBar = {TopAppBar()}) {padding ->
+        PokemonList(items, viewDelegate, navController)
+    }
 }
