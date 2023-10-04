@@ -9,19 +9,20 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.navigation.NavController
 import com.alejandroglzdev.pokeapp.data.model.Paginable
 import com.alejandroglzdev.pokeapp.data.model.PokemonModel
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 
 @Composable
-fun PokemonList(pokemonList: List<Pokemon>?, viewDelegate: Paginable) {
+fun PokemonList(pokemonList: List<Pokemon>?, viewDelegate: Paginable, navController: NavController) {
     val listState = rememberLazyListState()
     ConstraintLayout(Modifier.fillMaxSize()) {
         val circularProgressIndicator = createRef()
         if (pokemonList != null) {
             LazyColumn (state = listState){
                 items(pokemonList) { pokemon ->
-                    PokemonListView(pokemon)
+                    PokemonListView(pokemon, navController)
                 }
             }
 

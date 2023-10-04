@@ -5,7 +5,8 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class PokemonTypeDetail(
-    @SerializedName("name") val name: String?,
-    @SerializedName("url") val url: String?
+data class PokemonStats(
+    @SerializedName("base_stat") val base_stat: Int,
+    @SerializedName("effort") val effort: Int,
+    @SerializedName("stat") val stat: PokemonStatDetail
 ) : Parcelable

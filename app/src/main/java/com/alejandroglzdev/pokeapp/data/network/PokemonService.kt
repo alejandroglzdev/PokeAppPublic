@@ -25,6 +25,9 @@ class PokemonService @Inject constructor(private val api: PokemonApiClient) {
                     val response = api.getPokemon(i)
                     val pokemonResponse = response.body()
 
+                    val flavourTextResponse = api.getPokemonFlavourText(i)
+                    val flavourText = flavourTextResponse.body()?.flavorTextEntries?.get(1)?.flavorText
+
                     //Parse sprite to Base 64
                     val pokemonSpriteImage =
                         downloadImageToBase64(pokemonResponse?.sprites?.frontDefault)
@@ -34,8 +37,13 @@ class PokemonService @Inject constructor(private val api: PokemonApiClient) {
                             PokemonModel(
                                 pokemonName = pokemonResponse.pokemonName,
                                 pokedexNumber = pokemonResponse.pokedexNumber,
+                                pokemonHeight = pokemonResponse.pokemonHeight,
+                                pokemonWeight = pokemonResponse.pokemonWeight,
                                 sprites = PokemonSprite(frontDefault = pokemonSpriteImage),
-                                types = pokemonResponse.types
+                                types = pokemonResponse.types,
+                                stats = pokemonResponse.stats,
+                                flavorText = flavourText
+
                             )
                         )
                     }

@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.alejandroglzdev.pokeapp.data.model.PokemonSprite
+import com.alejandroglzdev.pokeapp.data.model.PokemonStats
 import com.alejandroglzdev.pokeapp.data.model.PokemonType
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 
@@ -12,8 +13,12 @@ data class PokemonEntity(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "pokedexNumber") val pokedexNumber: String,
     @ColumnInfo(name = "pokemonName") val pokemonName: String,
+    @ColumnInfo(name = "pokemonHeight") val pokemonHeight: Int,
+    @ColumnInfo(name = "pokemonWeight") val pokemonWeight: Int,
     @ColumnInfo(name = "sprites") val sprites: PokemonSprite,
-    @ColumnInfo(name = "types") val types: List<PokemonType>
+    @ColumnInfo(name = "types") val types: List<PokemonType>,
+    @ColumnInfo(name = "stats") val stats: List<PokemonStats>,
+    @ColumnInfo(name = "flavorText") val flavorText: String?,
 )
 
-fun Pokemon.toDatabase() = PokemonEntity(pokemonName = pokemonName, pokedexNumber = pokedexNumber, sprites = sprites, types = types)
+fun Pokemon.toDatabase() = PokemonEntity(pokemonName = pokemonName, pokedexNumber = pokedexNumber, sprites = sprites, types = types, pokemonHeight = height, pokemonWeight = weight, stats = stats, flavorText = flavorText)

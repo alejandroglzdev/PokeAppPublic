@@ -2,6 +2,7 @@ package com.alejandroglzdev.pokeapp.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -23,21 +24,32 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.os.bundleOf
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.alejandroglzdev.pokeapp.R
 import com.alejandroglzdev.pokeapp.core.ColorHelper
 import com.alejandroglzdev.pokeapp.data.model.PokemonModel
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 import com.alejandroglzdev.pokeapp.core.extensions.capitalizeFirst
 import com.alejandroglzdev.pokeapp.core.extensions.transformHexColor
+import com.alejandroglzdev.pokeapp.navigation.AppScreens
 
 @Composable
-fun PokemonListView(pokemonModel: Pokemon) {
+fun PokemonListView(pokemonModel: Pokemon, navController: NavController) {
     Surface(
         shape = RoundedCornerShape(16.dp),
         color = Color.White,
         modifier = Modifier
             .height(210.dp)
-            .padding(10.dp),
+            .padding(10.dp)
+            .clickable {
+                navController.currentBackStackEntry?.savedStateHandle?.set(
+                    key = "pokemon",
+                    value = pokemonModel
+                )
+                navController.navigate(AppScreens.DetailScreen.route)
+            },
         elevation = 10.dp
     ) {
         Box(
@@ -76,7 +88,10 @@ fun PokemonListView(pokemonModel: Pokemon) {
                                         fontSize = 12.sp,
                                         style = MaterialTheme.typography.h2,
                                         color = Color.White,
-                                        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+                                        modifier = Modifier.padding(
+                                            vertical = 4.dp,
+                                            horizontal = 8.dp
+                                        )
                                     )
                                 }
                                 Spacer(modifier = Modifier.width(5.dp))
@@ -86,33 +101,17 @@ fun PokemonListView(pokemonModel: Pokemon) {
 
                     Spacer(modifier = Modifier.height(4.dp))
 
-                    Text(
-                        text = pokemonModel.pokemonName.capitalizeFirst(),
-                        fontSize = 24.sp,
-                        style = MaterialTheme.typography.h1,
-                        fontWeight = FontWeight.SemiBold
-                    )
+                    PokemonH1(text = pokemonModel.pokemonName.capitalizeFirst())
 
                     Spacer(modifier = Modifier.height(2.dp))
 
                     Text(text = "#" + pokemonModel.pokedexNumber)
 
-                    Spacer(modifier = Modifier.height(2.dp))
-
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        /*
-                        Text(
-                            text = "4.0",
-                            fontSize =  14.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            style = MaterialTheme.typography.h1
-                        )
-                        */
-
-                        Spacer(modifier = Modifier.width(4.dp))
-                    }
-
-                    Spacer(modifier = Modifier.height(4.dp))
+                    Spacer(
+                        modifier = Modifier
+                            .height(6.dp)
+                            .width(4.dp)
+                    )
 
                     OutlinedButton(
                         shape = RoundedCornerShape(8.dp),
