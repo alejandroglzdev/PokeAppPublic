@@ -1,11 +1,9 @@
 package com.alejandroglzdev.pokeapp.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 import com.alejandroglzdev.pokeapp.ui.component.DetailPokemon
 import com.alejandroglzdev.pokeapp.ui.component.HomeScreen
