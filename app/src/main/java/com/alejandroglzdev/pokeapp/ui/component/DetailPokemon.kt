@@ -1,6 +1,8 @@
 package com.alejandroglzdev.pokeapp.ui.component
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +17,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.alejandroglzdev.pokeapp.R
 import com.alejandroglzdev.pokeapp.core.ColorHelper
 import com.alejandroglzdev.pokeapp.core.extensions.capitalizeFirst
@@ -22,7 +25,7 @@ import com.alejandroglzdev.pokeapp.core.extensions.removeBreakLine
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 
 @Composable
-fun DetailPokemon(pokemon: Pokemon) {
+fun DetailPokemon(pokemon: Pokemon, navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -33,7 +36,18 @@ fun DetailPokemon(pokemon: Pokemon) {
             ),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Spacer(modifier = Modifier.size(30.dp))
+        Spacer(modifier = Modifier.size(15.dp))
+
+        Image(painterResource(id = R.drawable.ic_arrow_back),
+            contentDescription = "Arrow back",
+
+            modifier = Modifier
+                .size(40.dp, 40.dp)
+                .align(Alignment.Start)
+                .padding(start = 16.dp)
+                .clickable {
+                    navController.popBackStack()
+                })
 
         //Imagen del Pokemon
         PokemonDetailImage(
@@ -60,7 +74,9 @@ fun DetailPokemon(pokemon: Pokemon) {
                     Icon(
                         painterResource(id = R.drawable.ic_weight),
                         contentDescription = "Weight icon",
-                        Modifier.size(14.dp).padding(end = 5.dp)
+                        Modifier
+                            .size(14.dp)
+                            .padding(end = 5.dp)
                     )
                     PokemonH2(text = (pokemon.weight.toFloat() / 10).toString() + " kg")
                 }
@@ -69,9 +85,11 @@ fun DetailPokemon(pokemon: Pokemon) {
                     Icon(
                         painterResource(id = R.drawable.ic_height),
                         contentDescription = "Height icon",
-                        Modifier.size(14.dp).padding(end = 5.dp)
+                        Modifier
+                            .size(14.dp)
+                            .padding(end = 5.dp)
                     )
-                    PokemonH2(text =(pokemon.height.toFloat() / 10).toString() + " m")
+                    PokemonH2(text = (pokemon.height.toFloat() / 10).toString() + " m")
                 }
 
             }

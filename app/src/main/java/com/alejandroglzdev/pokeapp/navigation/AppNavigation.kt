@@ -31,7 +31,7 @@ fun AppNavigation(pokemonViewModel: PokemonViewModel, viewDelegate: MainActivity
         composable(AppScreens.DetailScreen.route){
             val result = navController.previousBackStackEntry?.savedStateHandle?.get<Pokemon>("pokemon")
             if (result != null) {
-                DetailPokemon(pokemon = result)
+                DetailPokemon(pokemon = result, navController)
             }
         }
 
