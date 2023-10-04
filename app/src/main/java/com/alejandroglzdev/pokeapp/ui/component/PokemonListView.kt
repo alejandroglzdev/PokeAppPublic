@@ -119,7 +119,13 @@ fun PokemonListView(pokemonModel: Pokemon, navController: NavController) {
                             contentColor = Color.Black,
                             backgroundColor = Color.White
                         ),
-                        onClick = { /*TODO*/ }
+                        onClick = {
+                            navController.currentBackStackEntry?.savedStateHandle?.set(
+                                key = "pokemon",
+                                value = pokemonModel
+                            )
+                            navController.navigate(AppScreens.DetailScreen.route)
+                        }
                     ) {
                         Text(
                             text = "Read More",
