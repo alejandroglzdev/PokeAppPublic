@@ -1,4 +1,4 @@
-package com.alejandroglzdev.pokeapp.ui.component
+package com.alejandroglzdev.pokeapp.ui.component.items
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme

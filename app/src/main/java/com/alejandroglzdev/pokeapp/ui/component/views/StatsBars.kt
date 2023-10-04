@@ -1,10 +1,11 @@
-package com.alejandroglzdev.pokeapp.ui.component
+package com.alejandroglzdev.pokeapp.ui.component.views
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.alejandroglzdev.pokeapp.core.PokemonStatsEnum
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
+import com.alejandroglzdev.pokeapp.ui.component.items.StatsBarsItem
 
 @Composable
 fun StatsBars(pokemon: Pokemon) {

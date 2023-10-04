@@ -1,4 +1,4 @@
-package com.alejandroglzdev.pokeapp.ui.component
+package com.alejandroglzdev.pokeapp.ui.component.views
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn

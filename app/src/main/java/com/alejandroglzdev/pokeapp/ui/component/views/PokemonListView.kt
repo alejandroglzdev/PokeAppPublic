@@ -1,4 +1,4 @@
-package com.alejandroglzdev.pokeapp.ui.component
+package com.alejandroglzdev.pokeapp.ui.component.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -33,6 +33,8 @@ import com.alejandroglzdev.pokeapp.core.ColorHelper
 import com.alejandroglzdev.pokeapp.core.extensions.capitalizeFirst
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
 import com.alejandroglzdev.pokeapp.navigation.AppScreens
+import com.alejandroglzdev.pokeapp.ui.component.items.PokemonH1
+import com.alejandroglzdev.pokeapp.ui.component.items.PokemonImage
 
 @Composable
 fun PokemonListView(pokemonModel: Pokemon, navController: NavController) {
