@@ -16,8 +16,7 @@ import com.alejandroglzdev.pokeapp.core.extensions.normalizeStatsName
 @Composable
 fun StatsBarsItem(value: Int, pokemonStat: PokemonStatsEnum) {
     val limit = 255f
-    Column(
-    ) {
+    Column {
         PokemonH2(text = pokemonStat.description.normalizeStatsName(), fontSize = 12)
 
         Row(verticalAlignment = Alignment.CenterVertically) {

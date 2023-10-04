@@ -15,7 +15,6 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.SmallTopAppBar
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,7 +35,7 @@ fun TopAppBar() {
 
 @Composable
 fun TitleTopAppBar() {
-    Row(){
+    Row {
         PokemonH1(text = "Pokeapp")
         Image(
             painter = painterResource(id = R.drawable.ic_poke_ball),
