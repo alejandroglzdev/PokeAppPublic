@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,6 +24,7 @@ import com.alejandroglzdev.pokeapp.core.ColorHelper
 import com.alejandroglzdev.pokeapp.core.extensions.capitalizeFirst
 import com.alejandroglzdev.pokeapp.core.extensions.removeBreakLine
 import com.alejandroglzdev.pokeapp.domain.model.Pokemon
+import com.alejandroglzdev.pokeapp.ui.component.items.AdmobBanner
 import com.alejandroglzdev.pokeapp.ui.component.items.PokemonDetailImage
 import com.alejandroglzdev.pokeapp.ui.component.items.PokemonH1
 import com.alejandroglzdev.pokeapp.ui.component.items.PokemonH2
@@ -30,95 +32,99 @@ import com.alejandroglzdev.pokeapp.ui.component.items.TypesLazyRowDetail
 
 @Composable
 fun DetailPokemon(pokemon: Pokemon, navController: NavController) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                brush = Brush.linearGradient(
-                    colors = ColorHelper.getGradientFromTypes(pokemon)
-                )
-            ),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Spacer(modifier = Modifier.size(15.dp))
-
-        Image(painterResource(id = R.drawable.ic_arrow_back),
-            contentDescription = "Arrow back",
-
+    Scaffold(bottomBar = {AdmobBanner(padding = 10.dp)}) {padding ->
+        Column(
             modifier = Modifier
-                .size(40.dp, 40.dp)
-                .align(Alignment.Start)
-                .padding(start = 16.dp)
-                .clickable {
-                    navController.popBackStack()
-                })
-
-        //Imagen del Pokemon
-        PokemonDetailImage(
-            image = pokemon.sprites.frontDefault
-        )
-
-        Spacer(modifier = Modifier.size(10.dp))
-
-        //Nombre del Pokemon y numero
-        PokemonH1(text = pokemon.pokemonName.capitalizeFirst() + " #" + pokemon.pokedexNumber)
-
-        Spacer(modifier = Modifier.size(10.dp))
-
-        //Row con el tipo, peso y altura
-        Row {
-            //Row con los tipos
-            TypesLazyRowDetail(pokemon)
-
-            Spacer(Modifier.weight(1f))
-
-            //Row con peso y altura
-            Row {
-                Row(Modifier.padding(start = 10.dp, end = 10.dp)) {
-                    Icon(
-                        painterResource(id = R.drawable.ic_weight),
-                        contentDescription = "Weight icon",
-                        Modifier
-                            .size(14.dp)
-                            .padding(end = 5.dp)
+                .fillMaxSize()
+                .background(
+                    brush = Brush.linearGradient(
+                        colors = ColorHelper.getGradientFromTypes(pokemon)
                     )
-                    PokemonH2(text = (pokemon.weight.toFloat() / 10).toString() + " kg")
-                }
+                ),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Spacer(modifier = Modifier.size(15.dp))
 
-                Row(Modifier.padding(start = 10.dp, end = 10.dp)) {
-                    Icon(
-                        painterResource(id = R.drawable.ic_height),
-                        contentDescription = "Height icon",
-                        Modifier
-                            .size(14.dp)
-                            .padding(end = 5.dp)
-                    )
-                    PokemonH2(text = (pokemon.height.toFloat() / 10).toString() + " m")
-                }
+            Image(painterResource(id = R.drawable.ic_arrow_back),
+                contentDescription = "Arrow back",
 
-            }
-        }
+                modifier = Modifier
+                    .size(40.dp, 40.dp)
+                    .align(Alignment.Start)
+                    .padding(start = 16.dp)
+                    .clickable {
+                        navController.popBackStack()
+                    })
 
-        Spacer(modifier = Modifier.size(25.dp))
-
-        //Descripcion del Pokemon
-        pokemon.flavorText?.let {
-            PokemonH2(
-                text = it.removeBreakLine(),
-                horizontalPadding = 10,
-                fontSize = 14,
-                textAlign = TextAlign.Center
+            //Imagen del Pokemon
+            PokemonDetailImage(
+                image = pokemon.sprites.frontDefault
             )
+
+            Spacer(modifier = Modifier.size(10.dp))
+
+            //Nombre del Pokemon y numero
+            PokemonH1(text = pokemon.pokemonName.capitalizeFirst() + " #" + pokemon.pokedexNumber)
+
+            Spacer(modifier = Modifier.size(10.dp))
+
+            //Row con el tipo, peso y altura
+            Row {
+                //Row con los tipos
+                TypesLazyRowDetail(pokemon)
+
+                Spacer(Modifier.weight(1f))
+
+                //Row con peso y altura
+                Row {
+                    Row(Modifier.padding(start = 10.dp, end = 10.dp)) {
+                        Icon(
+                            painterResource(id = R.drawable.ic_weight),
+                            contentDescription = "Weight icon",
+                            Modifier
+                                .size(14.dp)
+                                .padding(end = 5.dp)
+                        )
+                        PokemonH2(text = (pokemon.weight.toFloat() / 10).toString() + " kg")
+                    }
+
+                    Row(Modifier.padding(start = 10.dp, end = 10.dp)) {
+                        Icon(
+                            painterResource(id = R.drawable.ic_height),
+                            contentDescription = "Height icon",
+                            Modifier
+                                .size(14.dp)
+                                .padding(end = 5.dp)
+                        )
+                        PokemonH2(text = (pokemon.height.toFloat() / 10).toString() + " m")
+                    }
+
+                }
+            }
+
+            Spacer(modifier = Modifier.size(25.dp))
+
+            //Descripcion del Pokemon
+            pokemon.flavorText?.let {
+                PokemonH2(
+                    text = it.removeBreakLine(),
+                    horizontalPadding = 10,
+                    fontSize = 14,
+                    textAlign = TextAlign.Center
+                )
+            }
+
+            Spacer(modifier = Modifier.size(30.dp))
+
+            PokemonH1(text = "Base stats", fontSize = 18)
+
+            Spacer(modifier = Modifier.size(10.dp))
+
+            //Barras de estadisticas
+            StatsBars(pokemon)
+
         }
-
-        Spacer(modifier = Modifier.size(30.dp))
-
-        PokemonH1(text = "Base stats", fontSize = 18)
-
-        Spacer(modifier = Modifier.size(10.dp))
-
-        //Barras de estadisticas
-        StatsBars(pokemon)
     }
+
 
 }
