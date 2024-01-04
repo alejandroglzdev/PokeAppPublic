@@ -12,7 +12,7 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
 @Composable
-fun AdmobBanner(padding: Dp = 0.dp) {
+fun AdmobBanner(padding: Dp = 0.dp, banner: String) {
     AndroidView(
         modifier = Modifier.fillMaxWidth().padding(padding),
         factory = { context ->

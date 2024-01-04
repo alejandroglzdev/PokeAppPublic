@@ -32,7 +32,7 @@ import com.alejandroglzdev.pokeapp.ui.component.items.TypesLazyRowDetail
 
 @Composable
 fun DetailPokemon(pokemon: Pokemon, navController: NavController) {
-    Scaffold(bottomBar = {AdmobBanner(padding = 10.dp)}) {padding ->
+    Scaffold(bottomBar = {AdmobBanner(padding = 10.dp, "ca-app-pub-3976631583971768/5199555433")}) {padding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()

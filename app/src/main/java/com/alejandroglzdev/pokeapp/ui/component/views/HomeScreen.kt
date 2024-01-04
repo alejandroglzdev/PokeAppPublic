@@ -16,7 +16,7 @@ import com.alejandroglzdev.pokeapp.ui.component.presentation.viewmodel.PokemonVi
 @Composable
 fun HomeScreen(viewModel: PokemonViewModel, viewDelegate: Paginable, navController: NavController) {
     val items by viewModel.items.observeAsState()
-    Scaffold(topBar = { TopAppBar() }, bottomBar = { AdmobBanner(padding = 10.dp) }) { padding ->
+    Scaffold(topBar = { TopAppBar() }, bottomBar = { AdmobBanner(padding = 10.dp, "ca-app-pub-3976631583971768/8619925694") }) { padding ->
         PokemonList(items, viewDelegate, navController)
 
     }
